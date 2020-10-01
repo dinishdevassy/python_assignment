@@ -1,0 +1,7 @@
+a=input("Enter a string  : ")
+l1=list(a.split(","))
+print("list : ")
+print(l1)
+t1=tuple(a.split(","))
+print("Tuple : ")
+print (t1)

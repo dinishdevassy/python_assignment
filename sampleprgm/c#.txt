@@ -1,0 +1,92 @@
+/******************************************************************************
+
+                            Online C# Compiler.
+                Code, Compile, Run and Debug C# program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AddNewMember
+{
+    public class Club {
+        static Dictionary<int,string> groupInfo=new Dictionary<int,string>(){ {1,"Gold"},{2,"Silver"},{3,"Platinum"} };
+        static Dictionary<int,List<string>>memberInfo=new Dictionary<int,List<String>>(){
+            {1,new List<string>(){"Tom","Harry"} },
+            {2,new List<string>(){"Sam","Peter"} },
+            {3,new List<string>(){"Kim","Robert"} } };
+            
+      public static void Main( string[] args) {
+          string groupname,membername;
+        Console.WriteLine("Group Name");
+        groupname=Console.ReadLine();
+        Console.WriteLine("Member Name");
+        membername=Console.ReadLine();
+        List<string> templist = new List<string>(); 
+            foreach (KeyValuePair<int , List<string>> m in memberInfo)  
+            
+            {
+                if(groupname=="Gold" && m.Key==1)
+                    templist=m.Value;
+                if(groupname=="Silver" && m.Key==2)
+                    templist=m.Value;
+                if(groupname=="Platinum" && m.Key==3)
+                    templist=m.Value;
+            }
+            templist.Add(membername);
+            
+      foreach(string k in templist) 
+        { 
+            Console.WriteLine(k); 
+        } 
+        
+      }
+    }
+}
+
+
+
+
+
+
+
+
+
+/******************************************************************************
+
+                            Online C# Compiler.
+                Code, Compile, Run and Debug C# program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DateEx1
+{
+    public class Program {
+        public static void Main(String[] args)
+        {
+            string dob;
+            int age;
+            Console.WriteLine("Enter the date of birth (dd-mm-yyyy): ");
+            dob=Console.ReadLine();
+            age=calculateAge(dob);
+            Console.WriteLine(age);
+        }
+        public static int calculateAge(string dateOfBirth)
+        {
+            DateTime dob = DateTime.ParseExact(dateOfBirth,"dd-mm-yyyy");
+            return DateTime.Now.Year-dob.Year;
+        }
+    }    
+}
